@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Branding</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
+  <style>
+     {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #68BBE3;
+      padding: 1rem 0;
+    }
+
+    header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+      background-color: #ABD7EB;
+      color: white;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .about {
+      position: relative;
+      padding: 4rem 2rem;
+      background-color: #eef7ff;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .about::before,
+    .about::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.3;
+      z-index: 0;
+      transition: all 0.5s ease;
+    }
+
+    .about::before {
+      top: -60px;
+      left: -60px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, #91d6ff 0%, #e0f7ff 100%);
+    }
+
+    .about::after {
+      bottom: -80px;
+      right: -80px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, #72c5ff 0%, #d8f0ff 100%);
+    }
+
+    .about:hover::before {
+      transform: scale(1.2) translate(15px, 15px);
+      background: radial-gradient(circle, #5bbdff 0%, #ccedff 100%);
+    }
+
+    .about:hover::after {
+      transform: scale(1.2) translate(-15px, -15px);
+      background: radial-gradient(circle, #3ab2ff 0%, #c1eaff 100%);
+    }
+
+    .about * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .tentang-img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .btn {
+      background-color: #07345d;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .portfolio {
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
+
+    .portfolio h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .portfolio-item {
+      width: 250px;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .testimonials {
+      background-color: #3d85c6;
+      padding: 30px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .testimonials h2 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    .activity-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .activity-grid img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .caption {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+
+    .contact {
+      padding: 30px 20px;
+      background-color: #f4f4f4;
+    }
+
+    .contact h2 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact label {
+      margin: 10px 0 5px;
+    }
+
+    .contact input,
+    .contact textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 8px;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .contact button {
+      background-color: #07345d;
+      color: white;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #07345d;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    footer ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    footer ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 600px) {
+      .activity-grid img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <img src="TUGAS/DESAIN WEBQQQQQ/logo.png" alt="Logo">
+      <nav>
+        <ul>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#portfolio">Karya</a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Halo, Selamat datang di website sederhana saya!</h1>
+    <p>Mengabadikan momen, melukis dan menciptakan cerita.</p>
+  </section>
+
+  <section class="about" id="about">
+    <img src="IMG_1685.JPG" alt="Foto Tentang Saya" class="tentang-img">
+    <h2>Tentang Saya</h2>
+    <p>Saya adalah seorang mahasiswi yang memiliki minat mendalam dalam dunia fotografi dan penulisan cerita. Bagi saya, setiap momen menyimpan kisah unik yang layak untuk diabadikan. Melalui lensa kamera dan rangkaian kata, saya berusaha menghadirkan kembali kenangan dan emosi dalam bentuk visual dan narasi. Aktif dalam organisasi kampus seperti HIMA, Perslima, dan DPM telah mengasah kemampuan saya dalam komunikasi, dan kerja sama tim.</p>
+    <a href="#portfolio" class="btn">Lihat Karya</a>
+  </section>
+
+  <section class="portfolio" id="portfolio">
+    <h2>Beberapa Karya</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="TUGAS/DESAIN WEBQQQQQ/WhatsApp Image 2025-04-05 at 09.39.35.jpeg"alt="Proyek 1">
+        <p>"Akasa menyelimuti dunia ini dengan kedamaian, memberikan ruang bagi setiap harapan untuk tumbuh dan meraih impian."</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="TUGAS/DESAIN WEBQQQQQ/WhatsApp Image 2025-04-05 at 09.40.42.jpeg" alt="Proyek 2">
+        <p>"Samudra yang luas ini bagaikan cermin bagi jiwa yang tengah mencari ketenangan, tak terhingga dan penuh dengan misteri."</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="TUGAS/DESAIN WEBQQQQQ/WhatsApp Image 2025-04-05 at 09.44.06.jpeg" alt="Proyek 3">
+        <p>"Pohon menghadap langit yang luas, awan bergerak secara perlahan, membentuk kisah-kisah yang mengalir bersama semilir angin. Dalam kesunyian itu, alam bercerita, dan aku mendengarkan."</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2></h2>
+    <div class="activity-grid">
+      <img src="DSC02605.jpg" alt="Kegiatan 1">
+      <img src="IMG_0712.JPG" alt="Kegiatan 2">
+      <img src="IMG_1433.jpg" alt="Kegiatan 3">
+      <img src="IMG_9165.jpg" alt="Kegiatan 4">
+      <img src="WhatsApp Image 2025-05-25 at 14.10.14.jpeg" alt="Kegiatan 5">
+      <img src="WhatsApp Image 2025-05-25 at 14.09.12.jpeg" alt="Kegiatan 6">
+      <img src="WhatsApp Image 2025-05-25 at 14.07.57.jpeg" alt="Kegiatan 7">
+      <img src="WhatsApp Image 2025-05-25 at 14.06.40.jpeg" alt="Kegiatan 8">
+      <img src="WhatsApp Image 2025-05-25 at 13.07.54.jpeg" alt="Kegiatan 9">
+    </div>
+    <p class="caption">Beberapa dokumentasi kegiatan kampus & organisasi.</p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Mari Berbincang</h2>
+    <form
+  action="https://formspree.io/f/xgvkjkjw"
+  method="POST"
+>
+  <label>
+   Nama:
+    <input type="email" name="email">
+  </label>
+		 <label>
+    Email:
+    <input type="email" name="email">
+  </label>
+   <label>
+    Pesan:
+    <input type="email" name="email">
+  </label>
+ 
+  <button type="submit">Kirim</button>
+</form>
+  </section>
+
+  <footer>
+    <p>Ayo mengenal lebih jauh, hubungi saya, di..</p>
+    <ul>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">YouTube</a></li>
+    </ul>
+  </footer>
+</body>
+</html>
